@@ -1,0 +1,83 @@
+:root {
+    --nav-background-color: rgb(236, 82, 82);
+    --background-hover-white: rgba(255, 255, 255, 0.137);
+    --color-text-white: rgb(228, 222, 222)
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.nav-bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--nav-background-color);
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20rem;
+}
+
+.nav-icon {
+    position: absolute;
+    left: 0;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-white);
+}
+
+.nav-item {
+    appearance: none;
+    text-decoration: none;
+    color: var(--color-text-white);
+    position: relative;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.nav-item:hover {
+    transition: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    background-color: var(--background-hover-white);
+}
+
+.nav-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.route-current::after {
+    transform: scaleX(1);
+}
+
+.content {
+    
+}
