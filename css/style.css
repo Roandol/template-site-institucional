@@ -1,7 +1,14 @@
 :root {
-    --nav-background-color: rgb(236, 82, 82);
-    --background-hover-white: rgba(255, 255, 255, 0.137);
-    --color-text-white: rgb(228, 222, 222)
+    --primary: rgb(236, 82, 82);
+    --secondary: ;
+    --background: rgb(48, 48, 53);
+    --textColorOnBackground: white;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 html {
@@ -9,7 +16,22 @@ html {
 }
 
 body {
+    background-color: var(--background);
+    color: var(--textColorOnBackground);
     margin: 0;
+    overflow: auto;
+}
+
+.dark {
+    --background: rgb(48, 48, 53);
+    --primary: rgb(218, 84, 84);
+    --textColorOnBackground: white;
+}
+
+.light {
+    --primary: rgb(236, 82, 82);
+    --background: rgb(243, 238, 238);
+    --textColorOnBackground: black;
 }
 
 .nav-bar {
@@ -19,7 +41,7 @@ body {
     height: 50px;
     width: 100%;
     padding: 10px;
-    background-color: var(--nav-background-color);
+    background-color: var(--primary);
 }
 
 .nav-items {
@@ -32,18 +54,16 @@ body {
 .nav-icon {
     position: absolute;
     left: 0;
-    padding: 5px;
-    margin: 5px;
     border: 1px solid;
-    display: flex;
-    align-items: center;
-    color: var(--color-text-white);
+    margin-left: 10px;
+    padding: 5px;
+    color: var(--textColorOnBackground)
 }
 
 .nav-item {
     appearance: none;
     text-decoration: none;
-    color: var(--color-text-white);
+    color: var(--textColorOnBackground);
     position: relative;
     padding: 10px;
     border-radius: 5px 5px 0 0;
@@ -56,7 +76,7 @@ body {
     right: 0;
     width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: var(--textColorOnBackground);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.5s;
@@ -66,7 +86,7 @@ body {
     transition: all;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    background-color: var(--background-hover-white);
+    background-color: rgba(255, 255, 255, 0.116);
 }
 
 .nav-item:hover::after {
@@ -78,6 +98,52 @@ body {
     transform: scaleX(1);
 }
 
-.content {
-    
+#themeToggle {
+    position: absolute;
+    right: 0;
+    border: 1px solid;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.content {}
+
+.content-primary {
+    display: flex;
+    align-items: center;
+    height: content;
+}
+
+.content-primary-image {
+    width: 52%;
+    height: 100%;
+}
+
+.content-primary-text {
+    width: 48%;
+    padding: 10px;
+}
+
+.content-primary-text>p {
+    width: 100%;
+}
+
+footer {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 1300px) {
+    .content-primary {
+        flex-direction: column;
+    }
+
+    .content-primary-image {
+        width: 100%;
+        height: 50%;
+    }
+
+    .content-primary-text {
+        width: 100%;
+    }
 }
