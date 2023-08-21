@@ -1,0 +1,76 @@
+.nav-bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary);
+}
+
+.nav-list-route {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20rem;
+}
+
+.nav-icon {
+    position: absolute;
+    left: 0;
+    border: 1px solid;
+    margin-left: 10px;
+    padding: 5px;
+    color: var(--textColorOnBackground);
+}
+
+.nav-list-route>.item {
+    appearance: none;
+    text-decoration: none;
+    color: var(--textColorOnBackground);
+    position: relative;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.nav-list-route>.item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--textColorOnBackground);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.nav-list-route>.item:hover {
+    transition: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+.nav-list-route>.item:hover::after {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.nav-list-route>.route-current::after {
+    transform: scaleX(1);
+}
+
+#themeToggle {
+    appearance: none;
+    border: none;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    padding: 5px;
+    background-color: transparent;
+}
+#themeToggle:focus {
+    outline: none;
+}
